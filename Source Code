@@ -1,0 +1,276 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void statement (char * ptr,int price){
+     printf("\nYou have chosen %s You will be charged %drs",ptr,price);
+            
+}
+void softdrink();
+void energy();
+void fruit();
+void admin();
+void trend();
+void update();
+int price;
+int profit=0;
+int sales=0;
+char item[20];
+
+
+int main(){
+    FILE *file=fopen("vending.txt","r");
+    if(file==NULL){
+        printf("Connecting to server failed, please restart the machine.\n");
+        return 0;
+    }
+
+    fscanf(file,"%d",&profit);
+    fscanf(file,"%d",&sales);
+    fclose(file);
+    printf("___________________________________\n Welcome to Virtual Vending Machine \n___________________________________\n");
+
+    
+    while(1){
+
+         printf("\n __________________\n|1.Soft Drinks     |\n|                  |\n|2.Fruit Juice     |\n|                  |\n|3.Chocolate Bars  |\n|                  |\n|4.Check Trending  |\n|                  |\n|5.Admin Login     |\n|                  |\n|6.Exit            |\n|__________________|\n\nYour choice: ");
+         int c2;
+        scanf("%d",&c2);
+        if(c2==1){
+        
+            softdrink();
+            update();
+            }
+        else if(c2==2){
+            fruit();
+            update();}
+        else if(c2==3){
+            energy();
+            update();}
+        else if(c2==4){
+            trend();
+            }
+        else if(c2==5){
+            admin();
+            }
+        else if(c2==6){
+            printf("Thank You for using Gaurab's laand");
+            exit(1);}
+        else{
+            printf("\nInvalid Entry");
+            continue;
+        }
+    }
+   
+    return 0;
+}
+
+
+void softdrink(){
+   // printf("in soft drink");
+      int c2;
+        while (1){
+        printf("\n __________________\n|1.Cola            |\n|                  |\n|2.Sprite          |\n|                  |\n|3.Mountain Dew    |\n|                  |\n|4.Fanta           |\n|                  |\n|5.Pepsi           |\n|                  |\n|__________________|\n\nYour choice: ");
+
+        scanf("%d",&c2);
+        if(c2==1){
+           // strcpy(item,);
+            statement("Cola",50);
+            profit+=5;
+            sales++;
+            break;}
+        else if(c2==2){
+            profit+=3;sales++;
+          //  strcpy(item,  );
+            statement("sprite",38);
+            break;}
+        else if(c2==3){
+            profit+=4;sales++;
+            // strcpy(item,  );
+             statement("Mountain Dew",45);
+             break;}
+        else if(c2==4){
+            profit+=2;sales++;
+            // strcpy(item,  );
+            statement("Fanta",20);
+            break;}
+        else if(c2==5){
+            profit+=4;sales++;
+             //strcpy(item,  )
+            statement("Pepsi",40);
+            break;}
+       
+        else{
+            printf("\nInvalid Entry");
+            continue;
+        }
+        }
+}
+
+void energy(){
+      int c2;
+        while (1){
+        printf("\n __________________\n|1.Fuse            |\n|                  |\n|2.Silk            |\n|                  |\n|3.SNICKERS        |\n|                  |\n|4.Bournville      |\n|                  |\n|5.Twix            |\n|                  |\n|__________________|\n\nYour choice: ");
+     
+        scanf("%d",&c2);
+        if(c2==1){
+          //  strcpy(item,  );
+            statement("Fuse",45);
+            profit+=4;sales++;
+            break;}
+        else if(c2==2){
+            profit+=12;sales++;
+            //strcpy(item,  );
+            statement("Silk",120);
+            break;}
+        else if(c2==3){
+            profit+=4;sales++;
+         //    strcpy(item,  );
+             statement("SNICKERS",40);
+             break;}
+        else if(c2==4){
+            profit+=11;sales++;
+          //   strcpy(item,  );
+            statement("Bournville",110);
+            break;}
+        else if(c2==5){
+            profit+=7;sales++;
+            // strcpy(item, "Twix" );
+            statement("Twix",75);
+            break;}
+       
+        else{
+            printf("\nInvalid Entry");
+            continue;
+        }
+        }
+}
+
+void fruit(){
+      int c2;
+        while (1){
+       printf("\n __________________\n|1.Sugar Apple     |\n|                  |\n|2.Avacado         |\n|                  |\n|3.Jackfruit       |\n|                  |\n|4.Melon           |\n|                  |\n|5.Guava           |\n|                  |\n|__________________|\n\nYour choice: ");
+      
+        scanf("%d",&c2);
+        if(c2==1){
+            //strcpy(item, ); 
+            statement( "Sugar Apple",250);
+            profit+=25;sales++;
+            break;}
+        else if(c2==2){
+            profit+=20;sales++;
+          //  strcpy(item,  );
+            statement("Avacado",200);
+            break;}
+        else if(c2==3){
+            profit+=18;sales++;
+           //  strcpy(item,  );=;
+             statement("Jackfruit",180);
+             break;}
+        else if(c2==4){
+            profit+=23;sales++;
+            // strcpy(item,  );=;
+            statement("Melon",230);
+            break;}
+        else if(c2==5){
+            profit+=16;sales++;
+          //   strcpy(item,  );=;
+            statement("Guava",165);
+            break;}
+       
+        else{
+            printf("\nInvalid Entry");
+            continue;
+        }
+        }
+}
+
+void trend(){
+    printf("\nThis week trending in sorted order.\n");
+    printf("\nPlease make your choice according:\n");
+    printf("\n __________________\n|1.Cola            |\n|                  |\n|2.Sprite          |\n|                  |\n|3.Mountain Dew    |\n|                  |\n|4.Fanta           |\n|                  |\n|5.Pepsi           |\n|                  |\n|__________________|\n");
+    printf("\n");
+    
+}
+
+void admin(){
+
+    printf("\n\nWelcome to admin access !\n\nPlease enter your pin or enter 0 to exit:");
+    int pin;
+    Gaurab:
+    scanf("%d",&pin);
+    
+    if(pin==1212){
+        printf("\nWelcome");
+    }
+    else if(pin==0)
+        goto gaurab;
+    else{
+        printf("\nSorrry! Incorrect Pin. \n try again: ");
+        goto Gaurab;
+
+        
+    }
+       
+        int c2;
+        
+        while(1){
+             printf("\n __________________\n|1.Check Profit    |\n|                  |\n|2.Total Sales     |\n|                  |\n|3.Reset Profit    |\n|                  |\n|4.Reset Sales     |\n|                  |\n|5.Exit            |\n|__________________|\n\nYour choice: ");
+                scanf("%d",&c2);
+            if(c2==1){
+                printf("Total profit till date : %d",profit);
+                continue;}
+            else if(c2==2){
+                printf("Total sales till date : %d",sales);
+                continue;}
+            
+            else if(c2==3){
+                printf("\nYour Profit has been set zero");
+                profit=0;
+                FILE *file2=fopen("vending.txt","w");
+                if(file2==NULL){
+                    printf("Connecting to server failed, please restart the machine.\n");
+                    exit(1);
+                }
+
+                fprintf(file2,"%d\n",profit);
+                fprintf(file2,"%d",sales);
+                fclose(file2);
+                
+                continue;}
+            else if (c2==4){
+                 printf("\nYour Sales count has been set zero");
+                sales=0;
+                 FILE *file3=fopen("vending.txt","w");
+                if(file3==NULL){
+                    printf("Connecting to server failed, please restart the machine.\n");
+                    exit(1);
+                }
+
+                fprintf(file3,"%d\n",profit);
+                fprintf(file3,"%d",sales);
+                fclose(file3);
+                continue;}
+            else if(c2==5){
+                printf("\nSucessfully logged out!");break;}
+
+            else    {
+                printf("Invalid entry");
+                continue;}
+        }
+        gaurab: 
+
+}
+
+void update(){
+
+    FILE *file1=fopen("vending.txt","w");
+            if(file1==NULL){
+                printf("Connecting to server failed, please restart the machine.\n");
+                exit(1);
+            }
+
+            fprintf(file1,"%d\n",profit);
+            fprintf(file1,"%d",sales);
+            fclose(file1);
+            
+}
