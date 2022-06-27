@@ -14,6 +14,8 @@ void update();
 int price;
 int profit=0;
 int sales=0;
+int itemsold=0;
+int pin;
 char item[20];
 
 
@@ -26,14 +28,16 @@ int main(){
 
     fscanf(file,"%d",&profit);
     fscanf(file,"%d",&sales);
+    fscanf(file,"%d",&itemsold);
+    fscanf(file,"%d",&pin);
     fclose(file);
     printf("___________________________________\n Welcome to Virtual Vending Machine \n___________________________________\n");
 
     
     while(1){
 
-         printf("\n __________________\n|1.Soft Drinks     |\n|                  |\n|2.Fruit Juice     |\n|                  |\n|3.Chocolate Bars  |\n|                  |\n|4.Check Trending  |\n|                  |\n|5.Admin Login     |\n|                  |\n|6.Exit            |\n|__________________|\n\nYour choice: ");
-         int c2;
+          printf("\n ____________________\n| __________________ |\n||1.Soft Drinks     ||\n||                  ||\n||2.Fruit Juice     ||\n||                  ||\n||3.Chocolate Bars  ||\n||                  ||\n||4.Check Trending  ||\n||                  ||\n||5.Admin Login     ||\n||                  ||\n||6.Exit            ||\n||__________________||\n|____________________|\n\nYour choice: ");
+            int c2;
         scanf("%d",&c2);
         if(c2==1){
         
@@ -53,7 +57,7 @@ int main(){
             admin();
             }
         else if(c2==6){
-            printf("Thank You for using Gaurab's laand");
+            printf("Thank You for using Gaurab's vending machine :)");
             exit(1);}
         else{
             printf("\nInvalid Entry");
@@ -76,27 +80,28 @@ void softdrink(){
            // strcpy(item,);
             statement("Cola",50);
             profit+=5;
-            sales++;
+            sales+=50;
+            itemsold++;
             break;}
         else if(c2==2){
-            profit+=3;sales++;
-          //  strcpy(item,  );
+            profit+=3;sales+=38;
+            itemsold++;
             statement("sprite",38);
             break;}
         else if(c2==3){
-            profit+=4;sales++;
-            // strcpy(item,  );
+            profit+=4;sales+=45;
+            itemsold++;
              statement("Mountain Dew",45);
              break;}
         else if(c2==4){
-            profit+=2;sales++;
-            // strcpy(item,  );
-            statement("Fanta",20);
+            profit+=2;sales+=20;
+            itemsold++;
+             statement("Fanta",20);
             break;}
         else if(c2==5){
-            profit+=4;sales++;
-             //strcpy(item,  )
-            statement("Pepsi",40);
+            profit+=4;sales+=40;
+            itemsold++;
+             statement("Pepsi",40);
             break;}
        
         else{
@@ -113,28 +118,28 @@ void energy(){
      
         scanf("%d",&c2);
         if(c2==1){
-          //  strcpy(item,  );
-            statement("Fuse",45);
-            profit+=4;sales++;
+             statement("Fuse",45);
+            profit+=4;sales+=45;
+            itemsold++;
             break;}
         else if(c2==2){
-            profit+=12;sales++;
-            //strcpy(item,  );
+            profit+=12;sales+=120;
+            itemsold++;
             statement("Silk",120);
             break;}
         else if(c2==3){
-            profit+=4;sales++;
-         //    strcpy(item,  );
-             statement("SNICKERS",40);
+            profit+=4;sales+=40;
+            itemsold++;
+              statement("SNICKERS",40);
              break;}
         else if(c2==4){
-            profit+=11;sales++;
-          //   strcpy(item,  );
+            profit+=11;sales+=110;
+            itemsold++;
             statement("Bournville",110);
             break;}
         else if(c2==5){
-            profit+=7;sales++;
-            // strcpy(item, "Twix" );
+            profit+=7;sales+=75;
+            itemsold++;
             statement("Twix",75);
             break;}
        
@@ -152,29 +157,29 @@ void fruit(){
       
         scanf("%d",&c2);
         if(c2==1){
-            //strcpy(item, ); 
             statement( "Sugar Apple",250);
-            profit+=25;sales++;
+            profit+=25;sales+=250;
+            itemsold++;
             break;}
         else if(c2==2){
-            profit+=20;sales++;
-          //  strcpy(item,  );
+            profit+=20;sales+=200;
+            itemsold++;
             statement("Avacado",200);
             break;}
         else if(c2==3){
-            profit+=18;sales++;
-           //  strcpy(item,  );=;
+            profit+=18;sales+=180;
+            itemsold++;
              statement("Jackfruit",180);
              break;}
         else if(c2==4){
-            profit+=23;sales++;
-            // strcpy(item,  );=;
+            profit+=23;sales+=230;
+            itemsold++;
             statement("Melon",230);
             break;}
         else if(c2==5){
-            profit+=16;sales++;
-          //   strcpy(item,  );=;
-            statement("Guava",165);
+            profit+=16;sales+=165;
+            itemsold++;
+             statement("Guava",165);
             break;}
        
         else{
@@ -187,22 +192,22 @@ void fruit(){
 void trend(){
     printf("\nThis week trending in sorted order.\n");
     printf("\nPlease make your choice according:\n");
-    printf("\n __________________\n|1.Cola            |\n|                  |\n|2.Sprite          |\n|                  |\n|3.Mountain Dew    |\n|                  |\n|4.Fanta           |\n|                  |\n|5.Pepsi           |\n|                  |\n|__________________|\n");
-    printf("\n");
+    printf("\n __________________\n|1.Cola            |\n|                  |\n|2.Pepsi           |\n|                  |\n|3.Avacado         |\n|                  |\n|4.SNICKERS        |\n|                  |\n|5.Fuse            |\n|                  |\n|__________________|\n");
+    printf("\n\n");
     
 }
 
 void admin(){
 
-    printf("\n\nWelcome to admin access !\n\nPlease enter your pin or enter 0 to exit:");
-    int pin;
+    printf("\n\nWelcome to admin access !\n\nPlease enter your pin or enter 0 to exit: ");
+    int epin;
     Gaurab:
-    scanf("%d",&pin);
+    scanf("%d",&epin);
     
-    if(pin==1212){
-        printf("\nWelcome");
+    if(epin==pin){
+        printf("\n        Welcome");
     }
-    else if(pin==0)
+    else if(epin==0)
         goto gaurab;
     else{
         printf("\nSorrry! Incorrect Pin. \n try again: ");
@@ -214,43 +219,57 @@ void admin(){
         int c2;
         
         while(1){
-             printf("\n __________________\n|1.Check Profit    |\n|                  |\n|2.Total Sales     |\n|                  |\n|3.Reset Profit    |\n|                  |\n|4.Reset Sales     |\n|                  |\n|5.Exit            |\n|__________________|\n\nYour choice: ");
-                scanf("%d",&c2);
+             printf("\n\n**************************\n* ______________________ *\n*|1.Check Profit        |*\n*|                      |*\n*|2.Total Sales         |*\n*|                      |*\n*|3.Total items sold    |*\n*|                      |*\n*|4.Reset Profit        |*\n*|                      |*\n");
+             printf("*|5.Reset Sales         |*\n*|                      |*\n*|6.Reset items count   |*\n*|                      |*\n*|7.Change Password     |*\n*|                      |*\n*|8.Exit                |*\n*|______________________|*\n*                        *\n**************************\n\n\nYour choice: ") ;                 
+
+              scanf("%d",&c2);
             if(c2==1){
                 printf("Total profit till date : %d",profit);
                 continue;}
             else if(c2==2){
                 printf("Total sales till date : %d",sales);
                 continue;}
-            
             else if(c2==3){
-                printf("\nYour Profit has been set zero");
+                printf("Total items sold till date : %d",itemsold);
+                continue;}
+            
+            else if(c2==4){
+                
                 profit=0;
-                FILE *file2=fopen("vending.txt","w");
-                if(file2==NULL){
-                    printf("Connecting to server failed, please restart the machine.\n");
-                    exit(1);
-                }
-
-                fprintf(file2,"%d\n",profit);
-                fprintf(file2,"%d",sales);
-                fclose(file2);
+                update();
+                printf("\nYour Profit has been set zero");
+                continue;}
+            else if (c2==5){
+                 sales=0;
+                update();
+                 printf("\nYour Sales count has been set zero");
+                
                 
                 continue;}
-            else if (c2==4){
-                 printf("\nYour Sales count has been set zero");
-                sales=0;
-                 FILE *file3=fopen("vending.txt","w");
-                if(file3==NULL){
-                    printf("Connecting to server failed, please restart the machine.\n");
-                    exit(1);
+            else if (c2==6){
+                 itemsold=0;
+                update();
+                 printf("\nYour items count has been set zero");
+                
+                continue;}
+            else if (c2==7){
+                 
+                printf("\nEnter current password: ");
+                int upin;
+                scanf("%d",&upin);
+                if(upin==pin){
+                    printf("\nEnter new password: ");
+                    scanf("%d",&pin);
+                    update();
+                }
+                else{
+                    printf("\nSorry! Pin doesn't match please try again!");
                 }
 
-                fprintf(file3,"%d\n",profit);
-                fprintf(file3,"%d",sales);
-                fclose(file3);
+                
                 continue;}
-            else if(c2==5){
+
+            else if(c2==8){
                 printf("\nSucessfully logged out!");break;}
 
             else    {
@@ -270,7 +289,9 @@ void update(){
             }
 
             fprintf(file1,"%d\n",profit);
-            fprintf(file1,"%d",sales);
+            fprintf(file1,"%d\n",sales);
+            fprintf(file1,"%d\n",itemsold);
+            fprintf(file1,"%d",pin);
             fclose(file1);
             
 }
