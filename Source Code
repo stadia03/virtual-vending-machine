@@ -1,16 +1,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void statement (char * ptr,int price){
+void statement (char * ptr,int price){  //funtion for printing the conformation statement
      printf("\nYou have chosen %s You will be charged %drs",ptr,price);
             
 }
-void softdrink();
+//some funtions accordin to diffrent catagories of food avaliable
+
+void softdrink(); 
 void energy();
 void fruit();
 void admin();
 void trend();
 void update();
+
+//some global integers requied to called by diffrent funtions 
 int price;
 int profit=0;
 int sales=0;
@@ -20,12 +24,14 @@ char item[20];
 
 
 int main(){
-    FILE *file=fopen("vending.txt","r");
+    
+    FILE *file=fopen("vending.txt","r");  //opening the file in read mode to take the previous records
     if(file==NULL){
-        printf("Connecting to server failed, please restart the machine.\n");
+        printf("Connecting to server failed, please restart the machine.\n"); //error message
         return 0;
     }
 
+    //taking data from txt file
     fscanf(file,"%d",&profit);
     fscanf(file,"%d",&sales);
     fscanf(file,"%d",&itemsold);
@@ -33,7 +39,7 @@ int main(){
     fclose(file);
     printf("___________________________________\n Welcome to Virtual Vending Machine \n___________________________________\n");
 
-    
+    //creating a initial loop to keep the program running.
     while(1){
 
           printf("\n ____________________\n| __________________ |\n||1.Soft Drinks     ||\n||                  ||\n||2.Fruit Juice     ||\n||                  ||\n||3.Chocolate Bars  ||\n||                  ||\n||4.Check Trending  ||\n||                  ||\n||5.Admin Login     ||\n||                  ||\n||6.Exit            ||\n||__________________||\n|____________________|\n\nYour choice: ");
@@ -41,8 +47,8 @@ int main(){
         scanf("%d",&c2);
         if(c2==1){
         
-            softdrink();
-            update();
+            softdrink();  //according to the choice of user calling the funtions
+            update();     //updating the record immediately to txt file 
             }
         else if(c2==2){
             fruit();
@@ -60,7 +66,7 @@ int main(){
             printf("Thank You for using Gaurab's vending machine :)");
             exit(1);}
         else{
-            printf("\nInvalid Entry");
+            printf("\nInvalid Entry");  //error for invalid entry
             continue;
         }
     }
@@ -68,18 +74,17 @@ int main(){
     return 0;
 }
 
-
+//funtion body 
 void softdrink(){
-   // printf("in soft drink");
+   
       int c2;
         while (1){
         printf("\n __________________\n|1.Cola            |\n|                  |\n|2.Sprite          |\n|                  |\n|3.Mountain Dew    |\n|                  |\n|4.Fanta           |\n|                  |\n|5.Pepsi           |\n|                  |\n|__________________|\n\nYour choice: ");
 
         scanf("%d",&c2);
         if(c2==1){
-           // strcpy(item,);
-            statement("Cola",50);
-            profit+=5;
+            statement("Cola",50);  //passing the values to statement funtion to print the final record.
+            profit+=5;  //changing the current record values according to the purchase
             sales+=50;
             itemsold++;
             break;}
@@ -197,19 +202,20 @@ void trend(){
     
 }
 
+//Now body of the admin funtion *_*
 void admin(){
 
     printf("\n\nWelcome to admin access !\n\nPlease enter your pin or enter 0 to exit: ");
     int epin;
-    Gaurab:
-    scanf("%d",&epin);
+    Gaurab:  //a label to be used with goto funtion
+    scanf("%d",&epin);   //taking the password 
     
-    if(epin==pin){
-        printf("\n        Welcome");
+    if(epin==pin){      //matching with the one in records
+        printf("\n        Welcome");    //if matches
     }
-    else if(epin==0)
+    else if(epin==0)            //if he wishes to exit
         goto gaurab;
-    else{
+    else{                                   //if he enters wrong password
         printf("\nSorrry! Incorrect Pin. \n try again: ");
         goto Gaurab;
 
@@ -224,19 +230,19 @@ void admin(){
 
               scanf("%d",&c2);
             if(c2==1){
-                printf("Total profit till date : %d",profit);
+                printf("Total profit till date : %d",profit);      //printing the profit as per received from file
                 continue;}
             else if(c2==2){
-                printf("Total sales till date : %d",sales);
+                printf("Total sales till date : %d",sales);  //for sales
                 continue;}
             else if(c2==3){
-                printf("Total items sold till date : %d",itemsold);
+                printf("Total items sold till date : %d",itemsold);   //for items sold
                 continue;}
             
-            else if(c2==4){
+            else if(c2==4){                           
                 
-                profit=0;
-                update();
+                profit=0;                               //changing the interger value 
+                update();                               // and updating record immediately to txt file
                 printf("\nYour Profit has been set zero");
                 continue;}
             else if (c2==5){
@@ -252,25 +258,25 @@ void admin(){
                  printf("\nYour items count has been set zero");
                 
                 continue;}
-            else if (c2==7){
+            else if (c2==7){                    //if he wishes to change the password
                  
-                printf("\nEnter current password: ");
-                int upin;
-                scanf("%d",&upin);
-                if(upin==pin){
-                    printf("\nEnter new password: ");
-                    scanf("%d",&pin);
-                    update();
+                printf("\nEnter current password: ");       
+                int upin;                     
+                scanf("%d",&upin);                       //taking current password
+                if(upin==pin){                           // verifying with the data base
+                    printf("\nEnter new password: ");             
+                    scanf("%d",&pin);                    //asking for new password 
+                    update();                            //updating it to data base file
                 }
                 else{
-                    printf("\nSorry! Pin doesn't match please try again!");
+                    printf("\nSorry! Pin doesn't match please try again!"); 
                 }
 
                 
                 continue;}
 
             else if(c2==8){
-                printf("\nSucessfully logged out!");break;}
+                printf("\nSucessfully logged out!");break;}         //if he wishes to logout
 
             else    {
                 printf("Invalid entry");
@@ -280,18 +286,20 @@ void admin(){
 
 }
 
-void update(){
 
-    FILE *file1=fopen("vending.txt","w");
+//one of the most important funtion //the update funtion 
+void update(){ 
+
+    FILE *file1=fopen("vending.txt","w");   //opening the file in write mode to override with current details
             if(file1==NULL){
                 printf("Connecting to server failed, please restart the machine.\n");
                 exit(1);
             }
 
-            fprintf(file1,"%d\n",profit);
+            fprintf(file1,"%d\n",profit);     //writing each line seperately 
             fprintf(file1,"%d\n",sales);
             fprintf(file1,"%d\n",itemsold);
             fprintf(file1,"%d",pin);
-            fclose(file1);
+            fclose(file1);                   //closing the file to avoid corruption
             
 }
