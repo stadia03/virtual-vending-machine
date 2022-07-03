@@ -19,22 +19,23 @@ Output Screenshots:
 
 Here is the main menu. You can choose between three categories of foods soft drink, fruit juice or chocolate bars.
 
-<img src="https://user-images.githubusercontent.com/93596846/177027039-93d97620-e19a-496c-8270-afb38f0f3ca2.png" width="50%" height="50%">
+<img src="https://user-images.githubusercontent.com/93596846/177027039-93d97620-e19a-496c-8270-afb38f0f3ca2.png" width="30%" height="30%">
 
 
 Let’s go with Chocolate bars.
 
-![image](https://user-images.githubusercontent.com/93596846/177027045-4a49c0b8-b5f0-4d26-8673-15631fb2e636.png)
+<img src="https://user-images.githubusercontent.com/93596846/177027045-4a49c0b8-b5f0-4d26-8673-15631fb2e636.png" width="30%" height="30%">
+
 
 You will receive a message showing your purchased item and its price. And you will be returned to main menu.
 
-![image](https://user-images.githubusercontent.com/93596846/177027056-1d2f54a1-0e5d-4c51-8090-d09279655f96.png)
+<img src="https://user-images.githubusercontent.com/93596846/177027056-1d2f54a1-0e5d-4c51-8090-d09279655f96.png" width="50%" height="50%">
 
 Now let’s take look into interesting feature, that’s the admin login.
 
 Here first it asks for password, that is saved into your file so it can’t be changed directly.
 
-![image](https://user-images.githubusercontent.com/93596846/177027089-afbb6337-b385-4f50-b932-cb440cead32e.png)
+<img src="https://user-images.githubusercontent.com/93596846/177027089-afbb6337-b385-4f50-b932-cb440cead32e.png" width="40%" height="40%">
 
 With some failed attempts we are finally in. 
 
