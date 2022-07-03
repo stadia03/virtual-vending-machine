@@ -5,7 +5,7 @@ First of all, am grateful that you landed upon my repo among thousands of creati
 So basically, I created a simple UI for a vending machine using C language, used some function calls and combined with file handling to save the record data and passwords.
 
 Here are functions listed down.
-![image](https://user-images.githubusercontent.com/93596846/177027009-7625b52f-a906-449c-a0d5-ca82a60bd577.png)
+<img src="https://your-image-url.type" width="100" height="100">(https://user-images.githubusercontent.com/93596846/177027009-7625b52f-a906-449c-a0d5-ca82a60bd577.png)
 
 
 YOU CAN GO THROUGH COMMENTS FOR BETTER UNDERSTANDING OF THE CODE : )
